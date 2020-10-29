@@ -1,5 +1,6 @@
+<svelte:options tag="svelte-footer"></svelte:options>
 <script>
-	let social = {
+	 let social = {
 		list: [
 			{
 				title: "Horario ",
@@ -36,7 +37,6 @@
 	};
 </script>
 
-<svelte:options tag="svelte-footer" />
 <svelte:head> 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -44,9 +44,6 @@
 </svelte:head> 
 
 <main>
-	<span class="material-icons">
-		settings_bluetooth
-	</span>
 	<div class="footer-div">
 		
 		<figure class="card-imageContainer">
@@ -82,7 +79,7 @@
 <style>
 	@font-face {
 		font-family: OpenSans;
-		src: url(../assets/open-sans/OpenSans-Regular.ttf);
+		src: url(assets/open-sans/OpenSans-Regular.ttf);
 	}
 	.footer-div {
 		background-color: #2b3643;
