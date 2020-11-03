@@ -51,7 +51,7 @@
 		
 		<figure class="card-imageContainer">
 			<img
-				src="assets/logoUD.png"
+				src="https://pruebasassets.portaloas.udistrital.edu.co/logo_universidad_acreditacion_inverse.png"
 				class="card-image"
 				alt="logo-udistrital" />
 		</figure>
@@ -120,7 +120,7 @@
 	}
 	h3,
 	h5 {
-		font-family: OpenSans !important;
+		font-family: "Open Sans" !important;
 		margin-bottom: 0.5rem;
 		font-size: 1rem;
 		font-family: Exo;
@@ -157,7 +157,7 @@
 		font-size: 13px;
 		text-align: center;
 		margin: 0;
-		font-family: OpenSans;
+		font-family: "Open Sans";
 	}
 
 	@media screen and (max-width: 1132px) {

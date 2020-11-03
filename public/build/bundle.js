@@ -344,7 +344,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(t_value);
-    			add_location(p, file, 72, 7, 1478);
+    			add_location(p, file, 72, 7, 1552);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -398,11 +398,11 @@ var app = (function () {
 
     			t2 = space();
     			attr_dev(span, "class", "material-icons");
-    			add_location(span, file, 67, 5, 1339);
+    			add_location(span, file, 67, 5, 1413);
     			attr_dev(div0, "class", "text-container");
-    			add_location(div0, file, 70, 5, 1407);
+    			add_location(div0, file, 70, 5, 1481);
     			attr_dev(div1, "class", "social");
-    			add_location(div1, file, 66, 4, 1313);
+    			add_location(div1, file, 66, 4, 1387);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -510,19 +510,19 @@ var app = (function () {
     			attr_dev(link1, "href", "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
     			attr_dev(link1, "rel", "stylesheet");
     			add_location(link1, file, 43, 1, 831);
-    			if (img.src !== (img_src_value = "assets/logoUD.png")) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "https://pruebasassets.portaloas.udistrital.edu.co/logo_universidad_acreditacion_inverse.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "card-image");
     			attr_dev(img, "alt", "logo-udistrital");
     			add_location(img, file, 52, 3, 1026);
     			attr_dev(figure, "class", "card-imageContainer");
     			add_location(figure, file, 51, 2, 986);
-    			add_location(h5, file, 59, 4, 1187);
+    			add_location(h5, file, 59, 4, 1261);
     			attr_dev(div0, "class", "footer-title");
-    			add_location(div0, file, 58, 3, 1156);
+    			add_location(div0, file, 58, 3, 1230);
     			attr_dev(div1, "class", "footer-column");
-    			add_location(div1, file, 57, 2, 1125);
+    			add_location(div1, file, 57, 2, 1199);
     			attr_dev(div2, "class", "footer-logos");
-    			add_location(div2, file, 63, 2, 1246);
+    			add_location(div2, file, 63, 2, 1320);
     			attr_dev(div3, "class", "footer-div");
     			add_location(div3, file, 49, 1, 956);
     			add_location(main, file, 48, 0, 948);
@@ -656,7 +656,7 @@ var app = (function () {
     class Footer extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>@import url("https://pruebasassets.portaloas.udistrital.edu.co/font-style.css");.footer-div{background-color:#2b3643;width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin-top:1%;box-shadow:2px -2px 11px #888888;position:fixed;bottom:0;left:0}.card-imageContainer{object-fit:cover;margin:0;border-right:0.1rem solid white;align-self:center}.text-container{align-self:center}.card-image{width:230px}.footer-column{color:white;width:10%;margin-top:1%;align-self:center;margin-right:3%}.footer-title{text-align:center}h5{font-family:OpenSans !important;margin-bottom:0.5rem;font-size:1rem;font-family:Exo;margin-top:0;color:white}.footer-logos{display:flex;justify-content:center;flex-wrap:wrap;width:65%}.social{display:flex;padding-left:5px;padding-right:5px;color:white;justify-content:center;width:18%;align-self:center}.material-icons{font-size:32px;align-self:center;margin-right:10px}p{font-size:13px;text-align:center;margin:0;font-family:OpenSans}@media screen and (max-width: 1132px){.social{width:20%}p{font-size:13px}.footer-column{margin-right:0}}@media screen and (max-width: 930px){.social{width:30%}.footer-logos{width:50%}}@media screen and (max-width: 768px){.social{width:40%}}@media screen and (max-width: 620px){.social{width:40%}.footer-logos{width:100%}.footer-column{width:30%}}@media screen and (max-width: 330px){.card-image{width:200px}h5{font-size:15px}}</style>`;
+    		this.shadowRoot.innerHTML = `<style>@import url("https://pruebasassets.portaloas.udistrital.edu.co/font-style.css");.footer-div{background-color:#2b3643;width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin-top:1%;box-shadow:2px -2px 11px #888888;position:fixed;bottom:0;left:0}.card-imageContainer{object-fit:cover;margin:0;border-right:0.1rem solid white;align-self:center}.text-container{align-self:center}.card-image{width:230px}.footer-column{color:white;width:10%;margin-top:1%;align-self:center;margin-right:3%}.footer-title{text-align:center}h5{font-family:"Open Sans" !important;margin-bottom:0.5rem;font-size:1rem;font-family:Exo;margin-top:0;color:white}.footer-logos{display:flex;justify-content:center;flex-wrap:wrap;width:65%}.social{display:flex;padding-left:5px;padding-right:5px;color:white;justify-content:center;width:18%;align-self:center}.material-icons{font-size:32px;align-self:center;margin-right:10px}p{font-size:13px;text-align:center;margin:0;font-family:"Open Sans"}@media screen and (max-width: 1132px){.social{width:20%}p{font-size:13px}.footer-column{margin-right:0}}@media screen and (max-width: 930px){.social{width:30%}.footer-logos{width:50%}}@media screen and (max-width: 768px){.social{width:40%}}@media screen and (max-width: 620px){.social{width:40%}.footer-logos{width:100%}.footer-column{width:30%}}@media screen and (max-width: 330px){.card-image{width:200px}h5{font-size:15px}}</style>`;
     		init(this, { target: this.shadowRoot }, instance, create_fragment, safe_not_equal, {});
 
     		if (options) {
