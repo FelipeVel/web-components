@@ -37,11 +37,14 @@
 	};
 </script>
 
-<svelte:head> 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-</svelte:head> 
+<svelte:head>
+	<link
+		href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+		rel="stylesheet" />
+</svelte:head>
 
 <main>
 	<div class="footer-div">
@@ -77,10 +80,7 @@
 </main>
 
 <style>
-	@font-face {
-		font-family: OpenSans;
-		src: url(assets/open-sans/OpenSans-Regular.ttf);
-	}
+	@import url("https://pruebasassets.portaloas.udistrital.edu.co/font-style.css");
 	.footer-div {
 		background-color: #2b3643;
 		width: 100%;

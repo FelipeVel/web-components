@@ -334,7 +334,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (69:6) {#each lista.value as value}
+    // (72:6) {#each lista.value as value}
     function create_each_block_1(ctx) {
     	let p;
     	let t_value = /*value*/ ctx[4] + "";
@@ -344,7 +344,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(t_value);
-    			add_location(p, file, 69, 7, 1379);
+    			add_location(p, file, 72, 7, 1478);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -360,14 +360,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(69:6) {#each lista.value as value}",
+    		source: "(72:6) {#each lista.value as value}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:3) {#each social.list as lista}
+    // (66:3) {#each social.list as lista}
     function create_each_block(ctx) {
     	let div1;
     	let span;
@@ -398,11 +398,11 @@ var app = (function () {
 
     			t2 = space();
     			attr_dev(span, "class", "material-icons");
-    			add_location(span, file, 64, 5, 1240);
+    			add_location(span, file, 67, 5, 1339);
     			attr_dev(div0, "class", "text-container");
-    			add_location(div0, file, 67, 5, 1308);
+    			add_location(div0, file, 70, 5, 1407);
     			attr_dev(div1, "class", "social");
-    			add_location(div1, file, 63, 4, 1214);
+    			add_location(div1, file, 66, 4, 1313);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -452,7 +452,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(63:3) {#each social.list as lista}",
+    		source: "(66:3) {#each social.list as lista}",
     		ctx
     	});
 
@@ -460,7 +460,8 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
-    	let link;
+    	let link0;
+    	let link1;
     	let t0;
     	let main;
     	let div3;
@@ -483,7 +484,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			link = element("link");
+    			link0 = element("link");
+    			link1 = element("link");
     			t0 = space();
     			main = element("main");
     			div3 = element("div");
@@ -502,31 +504,35 @@ var app = (function () {
     			}
 
     			this.c = noop;
-    			attr_dev(link, "href", "https://fonts.googleapis.com/icon?family=Material+Icons");
-    			attr_dev(link, "rel", "stylesheet");
-    			add_location(link, file, 40, 1, 738);
+    			attr_dev(link0, "href", "https://fonts.googleapis.com/icon?family=Material+Icons");
+    			attr_dev(link0, "rel", "stylesheet");
+    			add_location(link0, file, 40, 1, 737);
+    			attr_dev(link1, "href", "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+    			attr_dev(link1, "rel", "stylesheet");
+    			add_location(link1, file, 43, 1, 831);
     			if (img.src !== (img_src_value = "assets/logoUD.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "card-image");
     			attr_dev(img, "alt", "logo-udistrital");
-    			add_location(img, file, 49, 3, 927);
+    			add_location(img, file, 52, 3, 1026);
     			attr_dev(figure, "class", "card-imageContainer");
-    			add_location(figure, file, 48, 2, 887);
-    			add_location(h5, file, 56, 4, 1088);
+    			add_location(figure, file, 51, 2, 986);
+    			add_location(h5, file, 59, 4, 1187);
     			attr_dev(div0, "class", "footer-title");
-    			add_location(div0, file, 55, 3, 1057);
+    			add_location(div0, file, 58, 3, 1156);
     			attr_dev(div1, "class", "footer-column");
-    			add_location(div1, file, 54, 2, 1026);
+    			add_location(div1, file, 57, 2, 1125);
     			attr_dev(div2, "class", "footer-logos");
-    			add_location(div2, file, 60, 2, 1147);
+    			add_location(div2, file, 63, 2, 1246);
     			attr_dev(div3, "class", "footer-div");
-    			add_location(div3, file, 46, 1, 857);
-    			add_location(main, file, 45, 0, 849);
+    			add_location(div3, file, 49, 1, 956);
+    			add_location(main, file, 48, 0, 948);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			append_dev(document.head, link);
+    			append_dev(document.head, link0);
+    			append_dev(document.head, link1);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, div3);
@@ -571,7 +577,8 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			detach_dev(link);
+    			detach_dev(link0);
+    			detach_dev(link1);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     			destroy_each(each_blocks, detaching);
@@ -649,7 +656,7 @@ var app = (function () {
     class Footer extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>@font-face{font-family:OpenSans;src:url(assets/open-sans/OpenSans-Regular.ttf)}.footer-div{background-color:#2b3643;width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin-top:1%;box-shadow:2px -2px 11px #888888;position:fixed;bottom:0;left:0}.card-imageContainer{object-fit:cover;margin:0;border-right:0.1rem solid white;align-self:center}.text-container{align-self:center}.card-image{width:230px}.footer-column{color:white;width:10%;margin-top:1%;align-self:center;margin-right:3%}.footer-title{text-align:center}h5{font-family:OpenSans !important;margin-bottom:0.5rem;font-size:1rem;font-family:Exo;margin-top:0;color:white}.footer-logos{display:flex;justify-content:center;flex-wrap:wrap;width:65%}.social{display:flex;padding-left:5px;padding-right:5px;color:white;justify-content:center;width:18%;align-self:center}.material-icons{font-size:32px;align-self:center;margin-right:10px}p{font-size:13px;text-align:center;margin:0;font-family:OpenSans}@media screen and (max-width: 1132px){.social{width:20%}p{font-size:13px}.footer-column{margin-right:0}}@media screen and (max-width: 930px){.social{width:30%}.footer-logos{width:50%}}@media screen and (max-width: 768px){.social{width:40%}}@media screen and (max-width: 620px){.social{width:40%}.footer-logos{width:100%}.footer-column{width:30%}}@media screen and (max-width: 330px){.card-image{width:200px}h5{font-size:15px}}</style>`;
+    		this.shadowRoot.innerHTML = `<style>@import url("https://pruebasassets.portaloas.udistrital.edu.co/font-style.css");.footer-div{background-color:#2b3643;width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin-top:1%;box-shadow:2px -2px 11px #888888;position:fixed;bottom:0;left:0}.card-imageContainer{object-fit:cover;margin:0;border-right:0.1rem solid white;align-self:center}.text-container{align-self:center}.card-image{width:230px}.footer-column{color:white;width:10%;margin-top:1%;align-self:center;margin-right:3%}.footer-title{text-align:center}h5{font-family:OpenSans !important;margin-bottom:0.5rem;font-size:1rem;font-family:Exo;margin-top:0;color:white}.footer-logos{display:flex;justify-content:center;flex-wrap:wrap;width:65%}.social{display:flex;padding-left:5px;padding-right:5px;color:white;justify-content:center;width:18%;align-self:center}.material-icons{font-size:32px;align-self:center;margin-right:10px}p{font-size:13px;text-align:center;margin:0;font-family:OpenSans}@media screen and (max-width: 1132px){.social{width:20%}p{font-size:13px}.footer-column{margin-right:0}}@media screen and (max-width: 930px){.social{width:30%}.footer-logos{width:50%}}@media screen and (max-width: 768px){.social{width:40%}}@media screen and (max-width: 620px){.social{width:40%}.footer-logos{width:100%}.footer-column{width:30%}}@media screen and (max-width: 330px){.card-image{width:200px}h5{font-size:15px}}</style>`;
     		init(this, { target: this.shadowRoot }, instance, create_fragment, safe_not_equal, {});
 
     		if (options) {
