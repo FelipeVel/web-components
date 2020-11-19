@@ -18,12 +18,12 @@ export class FooterComponent {
     this.social = {
       list: [{
         title: 'Horario',
-        class: 'time',
+        class: 'access_time',
         link: '',
         value: ['Lunes a viernes', '8am a 5pm']
       }, {
         title: 'Nombre',
-        class: 'globe',
+        class: 'language',
         link: '',
         value: ['Sistema Integrado de informática y  Telecomunicaciones '],
       }, {
@@ -33,12 +33,12 @@ export class FooterComponent {
         value: ['323 93 00', 'Ext. 1112'],
       }, {
         title: 'Direccion',
-        class: 'pin',
+        class: 'place',
         link: 'https://goo.gl/maps/wURvmjEDR32YDe5z7',
         value: ['Cra 8 # 40-78', 'Piso 1']
       }, {
         title: 'mail',
-        class: 'at',
+        class: 'alternate_email',
         link: 'mailto:computo@udistrital.edu.co',
         value: ['computo@udistrital.edu.co']
       }

@@ -1,3 +1,10 @@
+@import url("https://pruebasassets.portaloas.udistrital.edu.co/font-style.css");
+
+p {
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
 .header-logo {
     display: none;
     border: none;
@@ -46,22 +53,17 @@ i {
     justify-content: flex-end;
     flex-wrap: wrap;
     align-items: center;
+    margin: 0 20px;
 }
 
-.header-button-notification {
-    font-size: 25px;
-    font-family: "Lucida Sans";
-    padding: 8px 15px;
-    width: 70px;
-    height: 50px;
-    cursor: pointer;
-    color: var(--primary);
-}
-
+.header-button-notification,
+.header-button-apps-container,
 .header-button-user-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    color: var(--primary);
 }
 
 .header-button-user-container > p {

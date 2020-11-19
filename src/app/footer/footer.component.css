@@ -69,6 +69,7 @@
 .social, .social > a {
     display: flex;
     color: var(--primary);
+    text-decoration: none;
     justify-content: center;
     width: 18%;
     align-self: center;

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { MenuAplicacionesService } from './../services/menuAplicaciones.service';
+import { NotioasService } from './../services/notioas.service';
 @Component({
   selector: 'ng-uui-header',
   templateUrl: './header.component.html',
@@ -8,7 +9,10 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input('appname') appname: any;
-  constructor() { }
+  constructor(
+    private notioasService: NotioasService,
+    private menuAplicacionesService: MenuAplicacionesService,
+    ) { }
 
   sidebarClases = {
     open: false,
@@ -34,19 +38,21 @@ export class HeaderComponent implements OnInit {
   }
 
   toogleCerrarSesion() {
-    // var buttonCerrarSesion = document.getElementById('header-button-cerrarsesion-container');
-    // if (buttonCerrarSesion.style.display === 'none' || buttonCerrarSesion.style.display === '') {
-    //   buttonCerrarSesion.style.display = 'block';
-    // } else {
-    //   buttonCerrarSesion.style.display = 'none';
-    // }
+    const buttonCerrarSesion = document.getElementById('header-button-cerrarsesion-container');
+    if (buttonCerrarSesion.style.display === 'none' || buttonCerrarSesion.style.display === '') {
+      buttonCerrarSesion.style.display = 'block';
+    } else {
+      buttonCerrarSesion.style.display = 'none';
+    }
   }
 
   toogleAplicaciones() {
-    // behaviorTheme.toogleAplicacion();
+    this.menuAplicacionesService.toogleMenuNotify();
   }
 
   togglenotify() {
+    this.notioasService.toogleMenuNotify();
+
     // if (!behaviorTheme.notificacion.open) {
     //   notificacion.changeStateNoView();
     // }
