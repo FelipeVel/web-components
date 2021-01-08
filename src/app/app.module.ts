@@ -21,14 +21,23 @@ import { NotioasComponent } from './notioas/notioas.component';
 import { LoadComponent } from './load/load.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppComponent } from './app.component';
-
-// material modules
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
+import { TercerosFormComponent } from './terceros-form/terceros-form.component';
+import { InformacionPersonalComponent } from './terceros-form/informacion-personal/informacion-personal.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
 import { OasComponent } from './oas/oas.component';
-import { TercerosFormComponent } from './terceros-form/terceros-form.component';
+
+// material modules
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS,} from '@angular/material-moment-adapter';
+import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 // end material modules
 @NgModule({
@@ -43,7 +52,8 @@ import { TercerosFormComponent } from './terceros-form/terceros-form.component';
     SidebarComponent,
     LoginComponent,
     OasComponent,
-    TercerosFormComponent
+    TercerosFormComponent,
+    InformacionPersonalComponent
   ],
   imports: [
     HttpClientModule,
@@ -54,6 +64,13 @@ import { TercerosFormComponent } from './terceros-form/terceros-form.component';
     //material modules
     MatListModule,
     MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatGridListModule
+    
     // end material modules
   ],
   entryComponents: [],
@@ -63,6 +80,10 @@ import { TercerosFormComponent } from './terceros-form/terceros-form.component';
     ImplicitAutenticationService,
     MenuAplicacionesService,
     MenuService,
+    MatDatepickerModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'es-CO' },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS] },// useValue: 'co-CO'
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
   ],
   exports: [],
   bootstrap: [AppComponent]
@@ -81,8 +102,8 @@ export class AppModule {
     const footer = createCustomElement(FooterComponent, { injector });
     customElements.define('ng-uui-footer', footer);
 
-    const terceros = createCustomElement(TercerosFormComponent, { injector });
-    customElements.define('ng-uui-terceros-form', terceros);
+    /*const terceros = createCustomElement(TercerosFormComponent, { injector });
+    customElements.define('ng-uui-terceros-form', terceros);*/
   }
   ngDoBootstrap() { }
 }

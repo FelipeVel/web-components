@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "webcomponents"
+  "defaultProject": "webcomponents",
+  "cli": {
+    "analytics": false
+  }
 }
