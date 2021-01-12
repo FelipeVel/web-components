@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
 
 
 
@@ -10,30 +10,39 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
   styleUrls: ['./informacion-personal.component.scss']
 })
 export class InformacionPersonalComponent implements OnInit {
-
-  tipoDocumento = new FormControl('');
-  numDocumento = new FormControl('', [Validators.required]);
-  fechaExpedicionDoc = new FormControl('date', [Validators.required]);
-  maxDate = new Date();
-
-
   
+  constructor(private formBuilder: FormBuilder) {   }
 
-  constructor() { 
-  }
 
+  maxDate = new Date();
+  submitStatus: boolean = false;
+  formInformacionPersonal: FormGroup = this.formBuilder.group({
+    tipoDocumento: ['', Validators.required],
+    numDocumento: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    fechaExpedicionDoc: ['', Validators.required],
+    pNombre: ['', Validators.required],
+    sNombre: [''],
+    pApellido: ['', Validators.required],
+    sApellido: [''],
+    estadoCivil: ['', Validators.required],
+    genero: ['', Validators.required],
+    fechaNacimiento: ['', Validators.required]
+  });
+  
   ngOnInit(): void {
   }
 
-  getErrorMessage() {
-    if (this.fechaExpedicionDoc.hasError('required', )) {
+  getErrorMessage(campo: FormControl) {
+    if (campo.hasError('required', )) {
       return 'Campo requerido';
     } else {
       return 'Introduzca un valor valido';
     }
-
-    
-      
   }
+
+  onSubmit() {
+    this.submitStatus = true;    
+  }
+
 
 }

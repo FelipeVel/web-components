@@ -1,28 +1,109 @@
-<mat-grid-list cols="3" rowHeight="70px" gutterSize="10px">
-    <mat-grid-tile>
-        <!--[style.background]="'skyblue'"-->
-        <mat-form-field appearance="outline" [style.width.%]="100">
-            <mat-label>Tipo de documento</mat-label>
-            <mat-select [formControl]="tipoDocumento">
-                <mat-option value="option">--Seleccionar--</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-form-field appearance="outline" [style.width.%]="100">
-            <mat-label>Número de documento</mat-label>
-            <input matInput type="number" min="0" [formControl]="numDocumento" step="1" pattern="\d+">
-            <mat-error *ngIf="numDocumento.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-form-field appearance="outline" [style.width.%]="100">
-            <mat-label>Fecha de expedicion del documento</mat-label>
-            <input matInput [matDatepicker]="fechaExpedicionDocPicker" [formControl]="fechaExpedicionDoc" [max]="maxDate" #pickerInput>
-            <mat-datepicker-toggle matSuffix [for]="fechaExpedicionDocPicker"></mat-datepicker-toggle>
-            <mat-datepicker #fechaExpedicionDocPicker></mat-datepicker>
-            <mat-error *ngIf="fechaExpedicionDoc.invalid">{{getErrorMessage(pickerInput.value)}}</mat-error>
-        </mat-form-field>
-    </mat-grid-tile>
+<mat-card class="col-8 mx-auto text-center">
+    <form [formGroup]="formInformacionPersonal" (ngSubmit)="onSubmit()">
+        <mat-grid-list cols="3" rowHeight="80px" gutterSize="10px">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Tipo de documento</mat-label>
+                    <mat-select formControlName="tipoDocumento" required>
+                        <mat-option value="" selected disabled hidden>--Seleccionar--</mat-option>
+                        <mat-option value="cedula">cedula</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionPersonal.get('tipoDocumento').invalid">{{getErrorMessage(formInformacionPersonal.get('tipoDocumento'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Número de documento</mat-label>
+                    <input matInput type="number" min="0" formControlName="numDocumento" step="1" required>
+                    <mat-error *ngIf="formInformacionPersonal.get('numDocumento').invalid">{{getErrorMessage(formInformacionPersonal.get('numDocumento'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Fecha de expedicion del documento</mat-label>
+                    <input matInput [matDatepicker]="fechaExpedicionDocPicker" formControlName="fechaExpedicionDoc" [max]="maxDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="fechaExpedicionDocPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #fechaExpedicionDocPicker></mat-datepicker>
+                    <mat-error *ngIf="formInformacionPersonal.get('fechaExpedicionDoc').invalid">{{getErrorMessage(formInformacionPersonal.get('fechaExpedicionDoc'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
 
-</mat-grid-list>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="80px" gutterSize="10px">
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Primer nombre</mat-label>
+                    <input matInput type="text" formControlName="pNombre" required>
+                    <mat-error *ngIf="formInformacionPersonal.get('pNombre').invalid">{{getErrorMessage(formInformacionPersonal.get('pNombre'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Segundo nombre</mat-label>
+                    <input matInput type="text" formControlName="sNombre">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Primer apellido</mat-label>
+                    <input matInput type="text" formControlName="pApellido" required>
+                    <mat-error *ngIf="formInformacionPersonal.get('pApellido').invalid">{{getErrorMessage(formInformacionPersonal.get('pApellido'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Segundo apellido</mat-label>
+                    <input matInput type="text" formControlName="sApellido">
+                </mat-form-field>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+
+        <mat-grid-list cols="3" rowHeight="80px" gutterSize="10px">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Estado civil</mat-label>
+                    <mat-select formControlName="estadoCivil" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionPersonal.get('estadoCivil').invalid">{{getErrorMessage(formInformacionPersonal.get('estadoCivil'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Género</mat-label>
+                    <mat-select formControlName="genero" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionPersonal.get('genero').invalid">{{getErrorMessage(formInformacionPersonal.get('genero'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Fecha de nacimiento</mat-label>
+                    <input matInput [matDatepicker]="fechaNacimientoPicker" formControlName="fechaNacimiento" [max]="maxDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="fechaNacimientoPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #fechaNacimientoPicker></mat-datepicker>
+                    <mat-error *ngIf="formInformacionPersonal.get('fechaNacimiento').invalid">{{getErrorMessage(formInformacionPersonal.get('fechaNacimiento'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+        <br />
+        <button [disabled]="!formInformacionPersonal.valid" mat-raised-button color="primary" type="submit" class="col-3 mt-2 mb-3" matStepperNext>
+            siguiente
+        </button>
+        <br />
+        <ng-template [ngIf]="submitStatus">
+            <span>{{formInformacionPersonal.value | json}}</span>
+        </ng-template>
+    </form>
+</mat-card>
