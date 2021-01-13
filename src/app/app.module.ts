@@ -40,6 +40,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS,} from '@angular/material-moment-adapter';
 import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { InformacionCaracteristicaComponent } from './terceros-form/informacion-caracteristica/informacion-caracteristica.component';
 
 
 
@@ -57,7 +58,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     LoginComponent,
     OasComponent,
     TercerosFormComponent,
-    InformacionPersonalComponent
+    InformacionPersonalComponent,
+    InformacionCaracteristicaComponent
   ],
   imports: [
     HttpClientModule,

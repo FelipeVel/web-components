@@ -1,0 +1,123 @@
+<mat-card class="col-8 mx-auto text-center">
+    <form [formGroup]="formInformacionCaracteristica" (ngSubmit)="onSubmit()">
+        <mat-grid-list cols="4" rowHeight="80px" gutterSize="10px">
+            <!--primera fila-->
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Grupo sanguíneo</mat-label>
+                    <mat-select formControlName="grupoSanguineo" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('grupoSanguineo').invalid">{{getErrorMessage(formInformacionCaracteristica.get('grupoSanguineo'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>RH</mat-label>
+                    <mat-select formControlName="RH" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('RH').invalid">{{getErrorMessage(formInformacionCaracteristica.get('RH'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Grupo étnico</mat-label>
+                    <mat-select formControlName="grupoEtnico" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('grupoEtnico').invalid">{{getErrorMessage(formInformacionCaracteristica.get('grupoEtnico'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--segunda fila-->
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>País de nacimiento</mat-label>
+                    <mat-select formControlName="paisNacimiento" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('paisNacimiento').invalid">{{getErrorMessage(formInformacionCaracteristica.get('paisNacimiento'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Departamento o estado de nacimiento</mat-label>
+                    <mat-select formControlName="dptoNacimiento" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('dptoNacimiento').invalid">{{getErrorMessage(formInformacionCaracteristica.get('dptoNacimiento'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--tercera fila--->
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Ciudad, municipio o provincia de nacimiento</mat-label>
+                    <mat-select formControlName="ciudadNacimiento" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('ciudadNacimiento').invalid">{{getErrorMessage(formInformacionCaracteristica.get('ciudadNacimiento'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Tipo de discapacidad</mat-label>
+                    <mat-select formControlName="tipoDiscapacidad" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('tipoDiscapacidad').invalid">{{getErrorMessage(formInformacionCaracteristica.get('tipoDiscapacidad'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--cuarta fila-->
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>EPS</mat-label>
+                    <mat-select formControlName="EPS" required>
+                        <mat-option value="option">--Seleccionar--</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('EPS').invalid">{{getErrorMessage(formInformacionCaracteristica.get('EPS'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Fecha de inicio de vinculación EPS</mat-label>
+                    <input matInput [matDatepicker]="fechaEpsPicker" formControlName="fechaEps" [max]="maxDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="fechaEpsPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #fechaEpsPicker></mat-datepicker>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('fechaEps').invalid">{{getErrorMessage(formInformacionCaracteristica.get('fechaEps'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--quinta fila-->
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Número de hermanos en la Universidad Distrital</mat-label>
+                    <input matInput type="number" min="0" max="10" formControlName="numHermanos" step="1" required>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('numHermanos').invalid">{{getErrorMessage(formInformacionCaracteristica.get('numHermanos'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-label>Puntaje SISBEN</mat-label>
+                    <input matInput type="number" min="0" max="100" formControlName="puntajeSisben" step="1" required>
+                    <mat-error *ngIf="formInformacionCaracteristica.get('puntajeSisben').invalid">{{getErrorMessage(formInformacionCaracteristica.get('puntajeSisben'))}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+        <br />
+        <button mat-button matStepperPrevious>Anterior</button>
+        <button [disabled]="!formInformacionCaracteristica.valid" mat-raised-button color="primary" type="submit" class="col-3 mt-2 mb-3" matStepperNext>
+            Siguiente
+        </button>
+        <br />
+        <ng-template [ngIf]="submitStatus">
+            <span>{{formInformacionCaracteristica.value | json}}</span>
+        </ng-template>
+
+    </form>
+</mat-card>

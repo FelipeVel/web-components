@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { InformacionPersonalComponent } from './informacion-personal/informacion-personal.component';
+import { InformacionCaracteristicaComponent } from './informacion-caracteristica/informacion-caracteristica.component';
 @Component({
   selector: 'ng-uui-terceros-form',
   templateUrl: './terceros-form.component.html',
@@ -9,10 +10,10 @@ import { InformacionPersonalComponent } from './informacion-personal/informacion
 })
 export class TercerosFormComponent implements OnInit {
 
-  isLinear = false;
   constructor() { }
 
   @ViewChild('InformacionPersonalComponent') informacionPersonalComponent: InformacionPersonalComponent;
+  @ViewChild('InformacionCaracteristicaComponent') informacionCaracteristicaComponent: InformacionCaracteristicaComponent;
 
   ngOnInit(): void {
   }
