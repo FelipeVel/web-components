@@ -16,6 +16,7 @@ export class InformacionCaracteristicaComponent implements OnInit {
 
   maxDate = new Date();
   submitStatus: boolean = false;
+  discapacidadLista: string[] = ['FISICA','SENSORIAL','AUDITIVA','VISUAL','PSIQUICA','MENTAL','NO APLICA'];
 
   formInformacionCaracteristica: FormGroup = this.formBuilder.group({
     grupoSanguineo: ['', Validators.required],

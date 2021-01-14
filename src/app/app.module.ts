@@ -13,6 +13,11 @@ import { ImplicitAutenticationService } from './services/implicit_autentication.
 import { MenuAplicacionesService } from './services/menuAplicaciones.service';
 import { MenuService } from './services/menu.service'
 
+//ngrx
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './@core/store/rootReducer';
+import { ListService } from './@core/store/services/list.service';
+
 // local Components
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -67,6 +72,7 @@ import { InformacionCaracteristicaComponent } from './terceros-form/informacion-
     ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot(rootReducer),
     //material modules
     MatListModule,
     MatIconModule,
@@ -90,6 +96,7 @@ import { InformacionCaracteristicaComponent } from './terceros-form/informacion-
     MenuAplicacionesService,
     MenuService,
     MatDatepickerModule,
+    ListService,
     { provide: MAT_DATE_LOCALE, useValue: 'es-CO' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS] },// useValue: 'co-CO'
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}

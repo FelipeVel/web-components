@@ -65,8 +65,14 @@
             <mat-grid-tile [colspan]="2" [rowspan]="1">
                 <mat-form-field appearance="outline" [style.width.%]="100">
                     <mat-label>Tipo de discapacidad</mat-label>
-                    <mat-select formControlName="tipoDiscapacidad" required>
-                        <mat-option value="option">--Seleccionar--</mat-option>
+                    <mat-select formControlName="tipoDiscapacidad" required multiple>
+                        <mat-select-trigger>
+                            {{formInformacionCaracteristica.get('tipoDiscapacidad') ? formInformacionCaracteristica.get('tipoDiscapacidad').value[0] : ''}}
+                            <span *ngIf="formInformacionCaracteristica.get('tipoDiscapacidad').value?.length > 1" class="example-additional-selection">
+                              (+{{formInformacionCaracteristica.get('tipoDiscapacidad').value.length - 1}} {{formInformacionCaracteristica.get('tipoDiscapacidad').value?.length === 2 ? 'Adicional' : 'Adicionales'}})
+                            </span>
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let items of discapacidadLista" [value]="items">{{items}}</mat-option>
                     </mat-select>
                     <mat-error *ngIf="formInformacionCaracteristica.get('tipoDiscapacidad').invalid">{{getErrorMessage(formInformacionCaracteristica.get('tipoDiscapacidad'))}}</mat-error>
                 </mat-form-field>

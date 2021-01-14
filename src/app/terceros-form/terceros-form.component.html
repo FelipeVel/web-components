@@ -1,28 +1,22 @@
-<mat-card class="col-8 mx-auto text-center">
-
-
-    <mat-horizontal-stepper linear #stepper>
-
-        <mat-step [stepControl]="informacionPersonalComponent.formInformacionPersonal">
-
-            <ng-template matStepLabel>Informacion personal</ng-template>
-            <ng-uui-informacion-personal #informacionPersonalComponent></ng-uui-informacion-personal>
-        </mat-step>
-        <mat-step [stepControl]="informacionCaracteristicaComponent.formInformacionCaracteristica">
-            <ng-template matStepLabel>Información característica</ng-template>
-            <ng-uui-informacion-caracteristica #informacionCaracteristicaComponent></ng-uui-informacion-caracteristica>
-        </mat-step>
-        <mat-step [stepControl]="formGroup2">
-            <ng-template matStepLabel>form2</ng-template>
-            <form [formGroup]="formGroup2">
-                <input type="text" formControlName="hola">
-                <button mat-button matStepperPrevious>anterior</button>
-            </form>
-        </mat-step>
-
-    </mat-horizontal-stepper>
-
-
-    <!--<p class="prueba">terceros-form works!</p>-->
-
-</mat-card>
+<div class="terceros-container">
+    <mat-card class="col-8 mx-auto text-center">
+        <mat-horizontal-stepper linear #stepper>
+            <mat-step [stepControl]="informacionPersonalComponent.formInformacionPersonal">
+                <ng-template matStepLabel>Informacion personal</ng-template>
+                <ng-uui-informacion-personal #informacionPersonalComponent></ng-uui-informacion-personal>
+            </mat-step>
+            <mat-step [stepControl]="informacionCaracteristicaComponent.formInformacionCaracteristica">
+                <ng-template matStepLabel>Información característica</ng-template>
+                <ng-uui-informacion-caracteristica #informacionCaracteristicaComponent>
+                </ng-uui-informacion-caracteristica>
+            </mat-step>
+            <mat-step [stepControl]="formGroup2">
+                <ng-template matStepLabel>form2</ng-template>
+                <form [formGroup]="formGroup2">
+                    <input type="text" formControlName="hola">
+                    <button mat-button matStepperPrevious>anterior</button>
+                </form>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-card>
+</div>
