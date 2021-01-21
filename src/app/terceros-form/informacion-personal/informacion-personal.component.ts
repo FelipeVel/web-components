@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
-import { IAppState } from '../../@core/store/app.state';
-import { Store } from '@ngrx/store';
-import { ListService } from '../../@core/store/services/list.service';
+import { InfoPersonalService } from 'src/app/services/info-personal.service';
 
 
 @Component({
@@ -12,14 +10,14 @@ import { ListService } from '../../@core/store/services/list.service';
 })
 export class InformacionPersonalComponent implements OnInit {
   
-  listaGenero: string[];
-  listaTipoIdentificacion: string[]; 
-  listaEstadoCivil: string[]; 
+  listaGenero: any[];
+  listaTipoIdentificacion: any[]; 
+  listaEstadoCivil: any[]; 
   maxDate : Date; 
   submitStatus: boolean = false;
   formInformacionPersonal: FormGroup = this.formBuilder.group({
     tipoDocumento: ['', Validators.required],
-    numDocumento: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    numDocumento: ['', [Validators.required, Validators.pattern("^[0-9]*$")]], //ajustar validación para campos como pasaporte
     fechaExpedicionDoc: ['', Validators.required],
     pNombre: ['', Validators.required],
     sNombre: [''],
@@ -30,10 +28,7 @@ export class InformacionPersonalComponent implements OnInit {
     fechaNacimiento: ['', Validators.required]
   });
   
-  constructor(private formBuilder: FormBuilder, private listService: ListService, private store: Store<IAppState>) {
-    this.listService.findGenero();
-    this.listService.findEstadoCivil();
-    this.listService.findTipoIdentificacion()
+  constructor(private infoPersonalService: InfoPersonalService, private formBuilder: FormBuilder) {
     this.listaGenero = [];
     this.listaTipoIdentificacion = [];
     this.listaEstadoCivil = [];
@@ -42,30 +37,19 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  generarListado(listaObjetos: any[]) : string[]{
-    let listaStrings: string[] = [];
-    listaObjetos.forEach(objeto => {
-      listaStrings.push(objeto.Nombre);
-    });
-    return listaStrings;
+    
   }
 
   public loadLists() {
-    this.store.select((state) => state).subscribe(
-      (list) => {
-        this.listaGenero = this.generarListado(list.listGenero);
-        console.log(list.listGenero);
-        console.log(this.listaGenero);
-        this.listaEstadoCivil = this.generarListado(list.listEstadoCivil);
-        console.log(list.listEstadoCivil);
-        console.log(this.listaEstadoCivil);
-        this.listaTipoIdentificacion = this.generarListado(list.listTipoIdentificacion);
-        console.log(list.listTipoIdentificacion);
-        console.log(this.listaTipoIdentificacion);
-      },
-    );
+    this.infoPersonalService.getInfoPersonal();
+    
+    this.infoPersonalService.infoPersonal$.subscribe((data: any) => {
+      console.log("Lista de objetos infoPersonal");
+      console.log(data);
+      this.listaTipoIdentificacion = data.listTipoDocumento;
+      this.listaGenero = data.listGenero;
+      this.listaEstadoCivil = data.listEstadoCivil;
+    })
   }
 
   getErrorMessage(campo: FormControl) {
@@ -81,3 +65,4 @@ export class InformacionPersonalComponent implements OnInit {
   }
 
 }
+//Se usó rxjs para la carga de los campos select
